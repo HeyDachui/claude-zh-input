@@ -1,0 +1,1475 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "2026-10-08",
+  "description": "Claude Code 常用斜杠命令中文输入库。候选只填入命令文本，不自动执行；同时可索引用户自己的 .claude/commands 与 .claude/skills 元数据。",
+  "verification": {
+    "officialDocsCheckedOn": "2026-10-08",
+    "localVersion": "2.1.292 (Claude Code)",
+    "localHelpCommand": "claude --help",
+    "localHelpScope": "本机 --help 核对 CLI 启动选项和子命令；斜杠命令清单以官方 commands 页面为准。未执行任何配置、删除、网络或会话命令。"
+  },
+  "trigger": {
+    "prefix": ";;",
+    "keyGesture": "Ctrl+;",
+    "requiresCompositionStart": true,
+    "consumePrefixWhenOpened": true,
+    "candidateOnly": true,
+    "notes": ";; 只在当前组合文本开头触发，普通文字中出现的分号不受影响；Ctrl+; 可直接打开菜单。候选选择后只填入 /command，等待用户自行编辑和提交。"
+  },
+  "sources": [
+    {
+      "id": "commands",
+      "title": "Claude Code 命令参考（官方）",
+      "url": "https://code.claude.com/docs/zh-CN/commands",
+      "accessedOn": "2026-10-08"
+    },
+    {
+      "id": "skills",
+      "title": "使用 skills 扩展 Claude（官方）",
+      "url": "https://code.claude.com/docs/zh-CN/skills",
+      "accessedOn": "2026-10-08"
+    },
+    {
+      "id": "cli",
+      "title": "CLI 参考（官方）",
+      "url": "https://code.claude.com/docs/zh-CN/cli-reference",
+      "accessedOn": "2026-10-08"
+    }
+  ],
+  "commands": [
+    {
+      "id": "builtin-help",
+      "chineseName": "帮助与命令列表",
+      "command": "/help",
+      "aliases": [],
+      "usage": "/help",
+      "parameters": "无",
+      "category": "daily",
+      "searchTerms": [
+        "bangzhu",
+        "bz",
+        "帮助",
+        "命令",
+        "commands"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "打开当前会话可用命令与帮助，不修改文件或设置。",
+      "impact": "readOnly",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code CLI 会话；可见命令随平台、套餐和环境变化。",
+        "plans": null,
+        "requires": null,
+        "notes": "官方命令参考中的内置命令。"
+      }
+    },
+    {
+      "id": "builtin-status",
+      "chineseName": "查看状态",
+      "command": "/status",
+      "aliases": [],
+      "usage": "/status",
+      "parameters": "无",
+      "category": "daily",
+      "searchTerms": [
+        "zhuangtai",
+        "zt",
+        "状态",
+        "版本",
+        "连接",
+        "account"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "显示版本、模型、账户、连接和会话类型，不修改设置。",
+      "impact": "readOnly",
+      "conditions": {
+        "minimumVersion": "2.1.221（会话类型行）",
+        "platform": "Claude Code 会话。",
+        "plans": null,
+        "requires": null,
+        "notes": "基础状态命令早于该版本；版本条件只针对文档所述会话类型显示。"
+      }
+    },
+    {
+      "id": "builtin-context",
+      "chineseName": "查看上下文",
+      "command": "/context",
+      "aliases": [],
+      "usage": "/context [all]",
+      "parameters": "可选 all：展开全部明细。",
+      "category": "context",
+      "searchTerms": [
+        "shangxiawen",
+        "sxxw",
+        "ctx",
+        "上下文",
+        "窗口",
+        "token"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "可视化当前上下文占用、工具和记忆膨胀，不修改对话内容。",
+      "impact": "readOnly",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "CLI 全屏或普通会话。",
+        "plans": null,
+        "requires": null,
+        "notes": "输入法默认不补 all，避免改变信息量。"
+      }
+    },
+    {
+      "id": "builtin-compact",
+      "chineseName": "压缩上下文",
+      "command": "/compact",
+      "aliases": [],
+      "usage": "/compact [instructions]",
+      "parameters": "可选摘要重点说明。",
+      "category": "context",
+      "searchTerms": [
+        "yasuo",
+        "ys",
+        "压缩",
+        "摘要",
+        "compact"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "将当前对话总结为较短上下文，改变后续模型可见历史；不改项目文件。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 会话。",
+        "plans": null,
+        "requires": null,
+        "notes": "用户应确认摘要重点后再提交。"
+      }
+    },
+    {
+      "id": "builtin-clear",
+      "chineseName": "新建空对话",
+      "command": "/clear",
+      "aliases": [
+        "/reset",
+        "/new"
+      ],
+      "usage": "/clear [name]",
+      "parameters": "可选会话名称。",
+      "category": "session",
+      "searchTerms": [
+        "qingkong",
+        "qk",
+        "新对话",
+        "清空",
+        "reset",
+        "new"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "以空上下文开始新对话；旧对话仍可由 /resume 找回。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 会话。",
+        "plans": null,
+        "requires": null,
+        "notes": "要释放同一会话上下文使用 /compact。"
+      }
+    },
+    {
+      "id": "builtin-copy",
+      "chineseName": "复制回答",
+      "command": "/copy",
+      "aliases": [],
+      "usage": "/copy [N]",
+      "parameters": "可选回答序号 N；含代码块时可选择代码块或整条回答。",
+      "category": "daily",
+      "searchTerms": [
+        "fuzhi",
+        "fz",
+        "复制",
+        "剪贴板",
+        "clipboard"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "把回答或代码块复制到系统剪贴板，或在选择器中写入文件。",
+      "impact": "localWrite",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "支持剪贴板的交互式终端；SSH 可选择写文件。",
+        "plans": null,
+        "requires": "用户确认选择内容。",
+        "notes": "填入库不读取回答，也不直接操作剪贴板。"
+      }
+    },
+    {
+      "id": "builtin-export",
+      "chineseName": "导出会话",
+      "command": "/export",
+      "aliases": [],
+      "usage": "/export [filename]",
+      "parameters": "可选目标文件名；省略时打开复制/保存对话框。",
+      "category": "daily",
+      "searchTerms": [
+        "daochu",
+        "dc",
+        "导出",
+        "文本",
+        "transcript"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "将当前对话导出为纯文本，指定文件名时写入本地文件。",
+      "impact": "localWrite",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "交互式 Claude Code 会话。",
+        "plans": null,
+        "requires": "写文件或剪贴板时需要用户选择。",
+        "notes": "导出内容可能包含对话中的敏感信息。"
+      }
+    },
+    {
+      "id": "builtin-diff",
+      "chineseName": "查看代码差异",
+      "command": "/diff",
+      "aliases": [],
+      "usage": "/diff",
+      "parameters": "无",
+      "category": "review",
+      "searchTerms": [
+        "chayi",
+        "cy",
+        "diff",
+        "改动",
+        "变更",
+        "差异"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "打开工作树和本轮编辑的交互式差异查看器，不修改文件。",
+      "impact": "readOnly",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "有交互式终端 UI 的 Claude Code 会话。",
+        "plans": null,
+        "requires": "项目最好位于 Git 工作树中。",
+        "notes": "只查看差异，不等同于提交或回退。"
+      }
+    },
+    {
+      "id": "builtin-usage",
+      "chineseName": "查看用量",
+      "command": "/usage",
+      "aliases": [
+        "/cost",
+        "/stats"
+      ],
+      "usage": "/usage",
+      "parameters": "无",
+      "category": "daily",
+      "searchTerms": [
+        "yongliang",
+        "yl",
+        "用量",
+        "费用",
+        "cost",
+        "stats"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "显示会话开销、套餐限制和统计信息，不改变配置。",
+      "impact": "readOnly",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 会话。",
+        "plans": "Pro、Max、Team 或 Enterprise 可显示相应套餐明细。",
+        "requires": null,
+        "notes": "API/第三方提供商的用量显示可能不同。"
+      }
+    },
+    {
+      "id": "builtin-btw",
+      "chineseName": "附带问题",
+      "command": "/btw",
+      "aliases": [],
+      "usage": "/btw [question]",
+      "parameters": "可选附带问题；省略时查看最近附带问题。",
+      "category": "context",
+      "searchTerms": [
+        "fudai",
+        "fd",
+        "附带",
+        "旁问",
+        "side question"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "询问不加入主对话历史的问题；不修改项目文件。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": "2.1.212（可省略 question）",
+        "platform": "Claude Code 会话。",
+        "plans": null,
+        "requires": null,
+        "notes": "适合查询小问题，避免污染主上下文。"
+      }
+    },
+    {
+      "id": "builtin-model",
+      "chineseName": "选择模型",
+      "command": "/model",
+      "aliases": [],
+      "usage": "/model [model]",
+      "parameters": "模型别名或完整模型 ID；省略时打开选择器。",
+      "category": "model",
+      "searchTerms": [
+        "moxing",
+        "mx",
+        "模型",
+        "sonnet",
+        "opus",
+        "haiku"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/cli-reference"
+      ],
+      "changeEffect": "切换当前会话模型，并可能保存为新会话默认模型；不改项目文件。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code CLI/桌面会话；可选模型随账户和提供商变化。",
+        "plans": null,
+        "requires": "模型别名或完整 ID 必须在当前账户/提供商可用。",
+        "notes": "本机 --help 同时确认了 --model 启动选项。"
+      }
+    },
+    {
+      "id": "builtin-effort",
+      "chineseName": "调整推理工作量",
+      "command": "/effort",
+      "aliases": [],
+      "usage": "/effort [level|auto|status|ultracode [on|off]]",
+      "parameters": "level 可为 low、medium、high、xhigh、max、auto 或 status。",
+      "category": "model",
+      "searchTerms": [
+        "gongzuoliang",
+        "gzl",
+        "推理",
+        "强度",
+        "努力",
+        "effort"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "改变当前会话的模型工作量级别；max 只对当前会话有效。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": "2.1.284（ultracode on/off 与保持级别参数）",
+        "platform": "Claude Code 会话；第三方提供商的中途切换可能排队。",
+        "plans": null,
+        "requires": "当前模型支持所选级别。",
+        "notes": "基础 effort 命令早于该版本。"
+      }
+    },
+    {
+      "id": "builtin-fast",
+      "chineseName": "快速模式",
+      "command": "/fast",
+      "aliases": [],
+      "usage": "/fast [on|off]",
+      "parameters": "可选 on 或 off；省略时切换状态。",
+      "category": "model",
+      "searchTerms": [
+        "kuaisu",
+        "ks",
+        "快速",
+        "fast"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "切换快速模式，影响后续请求速度与使用方式；当前轮次可能继续按原速度完成。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": "2.1.205",
+        "platform": "Claude Code 会话；-p 非交互模式支持有限。",
+        "plans": null,
+        "requires": null,
+        "notes": "第三方提供商或功能标志不可用时可能排队或不可用。"
+      }
+    },
+    {
+      "id": "builtin-plan",
+      "chineseName": "进入计划模式",
+      "command": "/plan",
+      "aliases": [],
+      "usage": "/plan [description]",
+      "parameters": "可选任务描述；可直接开始计划。",
+      "category": "planning",
+      "searchTerms": [
+        "jihua",
+        "jh",
+        "计划",
+        "规划",
+        "只读",
+        "plan mode"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/agent-sdk/permissions"
+      ],
+      "changeEffect": "切换到计划模式；Claude 可探索和提出方案，但默认不编辑源文件。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code CLI/桌面可用的会话模式；具体 UI 随平台变化。",
+        "plans": null,
+        "requires": null,
+        "notes": "计划模式是权限行为，和输入法候选选择无关。"
+      }
+    },
+    {
+      "id": "builtin-goal",
+      "chineseName": "设置持续目标",
+      "command": "/goal",
+      "aliases": [],
+      "usage": "/goal [condition|clear]",
+      "parameters": "条件文本；clear/stop/off/reset/none/cancel 可清除目标。",
+      "category": "planning",
+      "searchTerms": [
+        "mubiao",
+        "mb",
+        "目标",
+        "持续工作",
+        "goal"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "让 Claude 跨多个轮次持续工作直到条件满足或目标被清除。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "支持目标功能的 Claude Code 会话。",
+        "plans": null,
+        "requires": "清楚的终止条件；持续工作可能继续产生用量。",
+        "notes": "输入法只填入 /goal，不替用户生成或提交条件。"
+      }
+    },
+    {
+      "id": "builtin-permissions",
+      "chineseName": "管理权限规则",
+      "command": "/permissions",
+      "aliases": [
+        "/allowed-tools"
+      ],
+      "usage": "/permissions",
+      "parameters": "无；在交互面板中管理 allow、ask、deny 规则。",
+      "category": "permissions",
+      "searchTerms": [
+        "quanxian",
+        "qx",
+        "权限",
+        "允许",
+        "拒绝",
+        "allowed tools"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/agent-sdk/permissions"
+      ],
+      "changeEffect": "打开权限规则面板，可添加、删除规则并管理工作目录；可能写入设置。",
+      "impact": "localWrite",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 交互会话；权限模式随 CLI/桌面不同。",
+        "plans": null,
+        "requires": "用户逐项确认规则变化。",
+        "notes": "候选不会自动打开面板或修改规则。"
+      }
+    },
+    {
+      "id": "builtin-config",
+      "chineseName": "打开设置",
+      "command": "/config",
+      "aliases": [
+        "/settings"
+      ],
+      "usage": "/config [key=value ...]",
+      "parameters": "可选设置键值，例如 theme=dark、model=sonnet。",
+      "category": "permissions",
+      "searchTerms": [
+        "shezhi",
+        "sz",
+        "设置",
+        "配置",
+        "参数",
+        "settings"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "打开设置面板；使用 key=value 时直接改变对应用户/会话设置。",
+      "impact": "localWrite",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code CLI/桌面会话；设置键随版本变化。",
+        "plans": null,
+        "requires": "部分需要面板确认的设置不能用 key=value 开启。",
+        "notes": "不建议输入法自动补设置值。"
+      }
+    },
+    {
+      "id": "builtin-add-dir",
+      "chineseName": "添加工作目录",
+      "command": "/add-dir",
+      "aliases": [],
+      "usage": "/add-dir <path>",
+      "parameters": "必须提供目录路径。",
+      "category": "permissions",
+      "searchTerms": [
+        "tianjiamulu",
+        "tjml",
+        "添加目录",
+        "工作目录",
+        "adddir"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/cli-reference"
+      ],
+      "changeEffect": "为当前会话增加文件访问目录；可能触发 DirectoryAdded hook。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 会话；大多数网络路径不可添加，附加目录的 .claude 配置通常不会被发现。",
+        "plans": null,
+        "requires": "真实存在且用户有权访问的目录。",
+        "notes": "输入法只填入 /add-dir，路径由用户输入。"
+      }
+    },
+    {
+      "id": "builtin-cd",
+      "chineseName": "切换会话目录",
+      "command": "/cd",
+      "aliases": [],
+      "usage": "/cd <path>",
+      "parameters": "必须提供目标目录路径。",
+      "category": "session",
+      "searchTerms": [
+        "qiehuanmulu",
+        "qhml",
+        "切换目录",
+        "当前目录",
+        "cd"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "移动当前会话工作目录并保留对话，之后应用新目录的相关配置。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": "2.1.206（路径建议）",
+        "platform": "Claude Code 会话。",
+        "plans": null,
+        "requires": "真实存在且用户有权访问的目录。",
+        "notes": "与 /add-dir 的差异由官方文档定义。"
+      }
+    },
+    {
+      "id": "builtin-init",
+      "chineseName": "初始化项目记忆",
+      "command": "/init",
+      "aliases": [],
+      "usage": "/init",
+      "parameters": "无；可通过 CLAUDE_CODE_NEW_INIT=1 启用交互流程。",
+      "category": "permissions",
+      "searchTerms": [
+        "chushihua",
+        "cs h",
+        "初始化",
+        "claude md",
+        "项目规则"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/skills"
+      ],
+      "changeEffect": "生成或更新项目 CLAUDE.md，并可能提出 skill、hook、memory 设置。",
+      "impact": "localWrite",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 项目会话。",
+        "plans": null,
+        "requires": "对项目目录有写权限；若发现其他 Agent 配置可能建议迁移。",
+        "notes": "会改变项目文件，候选本身不执行。"
+      }
+    },
+    {
+      "id": "builtin-memory",
+      "chineseName": "管理项目记忆",
+      "command": "/memory",
+      "aliases": [],
+      "usage": "/memory",
+      "parameters": "无；在面板中编辑 CLAUDE.md、自动记忆或查看条目。",
+      "category": "permissions",
+      "searchTerms": [
+        "jiyi",
+        "jy",
+        "记忆",
+        "claude md",
+        "auto memory"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/skills"
+      ],
+      "changeEffect": "打开记忆管理界面；编辑时会写入 CLAUDE.md 或自动记忆文件。",
+      "impact": "localWrite",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 会话。",
+        "plans": null,
+        "requires": "用户确认要保存的记忆内容。",
+        "notes": "输入法不读取或改写记忆文件。"
+      }
+    },
+    {
+      "id": "builtin-mcp",
+      "chineseName": "管理 MCP 连接",
+      "command": "/mcp",
+      "aliases": [],
+      "usage": "/mcp [reconnect (<server>|all)|enable|disable [<server>|all]]",
+      "parameters": "可选 reconnect、enable、disable 与服务器名/all；无参数打开状态列表。",
+      "category": "extension",
+      "searchTerms": [
+        "mcp",
+        "fuwuqilianjie",
+        "fwq",
+        "服务器",
+        "连接",
+        "oauth"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/cli-reference"
+      ],
+      "changeEffect": "查看、重连、启用或禁用 MCP 服务器，OAuth 操作可能改变凭据状态。",
+      "impact": "externalOrAccount",
+      "conditions": {
+        "minimumVersion": "2.1.205（参数形式和非交互文本摘要）",
+        "platform": "Claude Code 会话；服务器能力取决于配置和提供商。",
+        "plans": null,
+        "requires": "已配置的 MCP 服务器；OAuth 需用户完成授权。",
+        "notes": "候选只填入命令，绝不自动连接或授权。"
+      }
+    },
+    {
+      "id": "builtin-skills",
+      "chineseName": "查看可用技能",
+      "command": "/skills",
+      "aliases": [],
+      "usage": "/skills",
+      "parameters": "无；可按名称、描述或来源筛选。",
+      "category": "extension",
+      "searchTerms": [
+        "jineng",
+        "jn",
+        "技能",
+        "skill",
+        "skills",
+        "来源"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/skills"
+      ],
+      "changeEffect": "列出和筛选可用 skill；交互操作可改变某些 skill 对 Claude 或命令菜单的可见性。",
+      "impact": "localWrite",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 会话；插件/托管 skill 的可见性受策略限制。",
+        "plans": null,
+        "requires": null,
+        "notes": "本输入法另有本地只读索引，不替代 Claude Code /skills。"
+      }
+    },
+    {
+      "id": "builtin-reload-skills",
+      "chineseName": "重新加载技能目录",
+      "command": "/reload-skills",
+      "aliases": [],
+      "usage": "/reload-skills",
+      "parameters": "无",
+      "category": "extension",
+      "searchTerms": [
+        "chongxinjiazai",
+        "cx",
+        "刷新技能",
+        "重新扫描",
+        "reload"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/skills"
+      ],
+      "changeEffect": "重新扫描 skill 和命令目录，使当前会话识别磁盘上新增或修改的条目。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 会话。",
+        "plans": null,
+        "requires": "磁盘上的目录由 Claude Code 发现规则决定。",
+        "notes": "输入法自己的发现器只读取 metadata，不会调用此命令。"
+      }
+    },
+    {
+      "id": "builtin-agents",
+      "chineseName": "管理子代理",
+      "command": "/agents",
+      "aliases": [],
+      "usage": "/agents",
+      "parameters": "无；提示 Claude 创建/管理子代理或编辑 agents 配置。",
+      "category": "planning",
+      "searchTerms": [
+        "zidaili",
+        "zdl",
+        "子代理",
+        "agent",
+        "agents"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "引导创建或管理子代理配置，可能写入 .claude/agents 或用户 agents 目录。",
+      "impact": "localWrite",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 会话。",
+        "plans": null,
+        "requires": "用户确认生成或修改的代理配置。",
+        "notes": "当前官方命令参考将配置动作交给 Claude 或用户编辑。"
+      }
+    },
+    {
+      "id": "builtin-tasks",
+      "chineseName": "查看后台任务",
+      "command": "/tasks",
+      "aliases": [
+        "/bashes"
+      ],
+      "usage": "/tasks",
+      "parameters": "无；可在列表中管理后台任务。",
+      "category": "planning",
+      "searchTerms": [
+        "houtairenwu",
+        "htrw",
+        "后台任务",
+        "任务",
+        "bashes"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "列出和管理当前会话后台工作，包括已完成的子代理。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 会话；无后台任务时仍可查看空列表。",
+        "plans": null,
+        "requires": null,
+        "notes": "命令菜单可在响应过程中立即打开。"
+      }
+    },
+    {
+      "id": "builtin-background",
+      "chineseName": "分离到后台运行",
+      "command": "/background",
+      "aliases": [
+        "/bg"
+      ],
+      "usage": "/background [prompt]",
+      "parameters": "可选分离前追加的一条指令。",
+      "category": "session",
+      "searchTerms": [
+        "houtai",
+        "ht",
+        "后台",
+        "分离",
+        "background",
+        "bg"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/cli-reference"
+      ],
+      "changeEffect": "把当前会话分离为后台 Agent，终端释放；会话继续运行并产生后台状态。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code CLI；用 claude agents 监视。",
+        "plans": null,
+        "requires": "后台 Agent 能力和当前会话。",
+        "notes": "会改变会话运行方式，候选不自动分离。"
+      }
+    },
+    {
+      "id": "builtin-fork",
+      "chineseName": "复制到后台会话",
+      "command": "/fork",
+      "aliases": [],
+      "usage": "/fork [prompt]",
+      "parameters": "可选让副本立即开始的提示词。",
+      "category": "session",
+      "searchTerms": [
+        "fencha",
+        "fc",
+        "分叉",
+        "复制会话",
+        "fork"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "把当前对话复制为新的后台会话，当前会话继续工作；子会话可能创建 worktree 或改文件。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": "2.1.212",
+        "platform": "支持 Agent 视图的 Claude Code CLI；工作树策略随版本变化。",
+        "plans": null,
+        "requires": "后台会话能力。",
+        "notes": "要把结果返回当前会话的子任务用 /subtask。"
+      }
+    },
+    {
+      "id": "builtin-subtask",
+      "chineseName": "派发子任务",
+      "command": "/subtask",
+      "aliases": [],
+      "usage": "/subtask <task>",
+      "parameters": "必须提供子任务说明。",
+      "category": "planning",
+      "searchTerms": [
+        "z id aili",
+        "zdl",
+        "子任务",
+        "派发",
+        "subtask"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "生成继承当前对话的后台子代理，完成后把结果返回当前对话；子代理可能改代码。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": "2.1.212",
+        "platform": "Claude Code Agent 视图开启时可用；关闭时可能隐藏。",
+        "plans": null,
+        "requires": "清楚、可独立执行的任务。",
+        "notes": "输入法不替用户补任务描述。"
+      }
+    },
+    {
+      "id": "builtin-branch",
+      "chineseName": "分支当前会话",
+      "command": "/branch",
+      "aliases": [],
+      "usage": "/branch [name]",
+      "parameters": "可选新分支名称。",
+      "category": "session",
+      "searchTerms": [
+        "fenzhi",
+        "fz",
+        "会话分支",
+        "branch"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "在当前点创建对话分支并切换过去，原对话保留，可用 /resume 返回。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 会话。",
+        "plans": null,
+        "requires": null,
+        "notes": "这里的分支是对话分支；代码 Git 分支取决于具体工作流。"
+      }
+    },
+    {
+      "id": "builtin-resume",
+      "chineseName": "恢复历史会话",
+      "command": "/resume",
+      "aliases": [
+        "/continue"
+      ],
+      "usage": "/resume [session]",
+      "parameters": "可选会话 ID 或名称；省略时打开选择器。",
+      "category": "session",
+      "searchTerms": [
+        "huifu",
+        "hf",
+        "恢复",
+        "继续",
+        "continue",
+        "session"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/cli-reference"
+      ],
+      "changeEffect": "恢复指定历史会话；恢复仍运行的后台会话时，当前终端会附加到它。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": "2.1.285（恢复运行中后台会话）",
+        "platform": "Claude Code CLI/桌面会话；具体选择器随平台变化。",
+        "plans": null,
+        "requires": "会话记录仍在本机或账户可见范围内。",
+        "notes": "本机 --help 同时确认了 --resume/--continue 启动选项。"
+      }
+    },
+    {
+      "id": "builtin-rename",
+      "chineseName": "重命名会话",
+      "command": "/rename",
+      "aliases": [],
+      "usage": "/rename [name]",
+      "parameters": "可选会话名；省略时按历史自动生成。",
+      "category": "session",
+      "searchTerms": [
+        "chongmingming",
+        "cmm",
+        "重命名",
+        "会话名",
+        "name"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "修改当前会话显示名称；新名称会出现在提示栏和恢复选择器。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": "2.1.205（非交互形式）",
+        "platform": "Claude Code 会话。",
+        "plans": null,
+        "requires": "名称不能为空；新版本限制控制字符和长度。",
+        "notes": "不自动生成名称或写入参数。"
+      }
+    },
+    {
+      "id": "builtin-rewind",
+      "chineseName": "回退检查点",
+      "command": "/rewind",
+      "aliases": [
+        "/checkpoint",
+        "/undo"
+      ],
+      "usage": "/rewind",
+      "parameters": "无；在面板中选择回退点或从消息开始总结。",
+      "category": "session",
+      "searchTerms": [
+        "huitui",
+        "ht",
+        "回退",
+        "撤销",
+        "检查点",
+        "undo"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "可回退对话和/或代码到检查点，可能丢弃之后的本地编辑。",
+      "impact": "localWrite",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 会话；可回退范围取决于已有检查点。",
+        "plans": null,
+        "requires": "用户在面板中确认目标检查点。",
+        "notes": "高影响命令，候选只填入。"
+      }
+    },
+    {
+      "id": "builtin-code-review",
+      "chineseName": "代码审查",
+      "command": "/code-review",
+      "aliases": [
+        "/review"
+      ],
+      "usage": "/code-review [low|medium|high|xhigh|max|ultra] [--fix] [--comment] [--max-findings n|all|default] [pr#|branch|path]",
+      "parameters": "可选 effort、--fix、--comment、最大问题数以及 PR/分支/路径。",
+      "category": "review",
+      "searchTerms": [
+        "daimashencha",
+        "dmsc",
+        "代码审查",
+        "审查",
+        "review",
+        "code review",
+        "pr"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/skills"
+      ],
+      "changeEffect": "审查 diff、PR、分支或路径；--fix 会应用修改，--comment 可能向 GitHub/GitLab 发布评论，ultra 使用云端审查。",
+      "impact": "externalOrAccount",
+      "isBundledSkill": true,
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code bundled skill；平台、Git 远端和功能开关影响可见性。",
+        "plans": "ultra 需要云端审查访问和相应用量。",
+        "requires": "--comment 需要相应仓库权限；--fix 需要允许编辑。",
+        "notes": "为了兼容 JSON 枚举，impact 使用大小写不敏感反序列化；建议宿主以高影响命令处理。"
+      }
+    },
+    {
+      "id": "builtin-security-review",
+      "chineseName": "安全审查",
+      "command": "/security-review",
+      "aliases": [],
+      "usage": "/security-review",
+      "parameters": "无",
+      "category": "review",
+      "searchTerms": [
+        "anquanshencha",
+        "aqsc",
+        "安全审查",
+        "安全",
+        "漏洞",
+        "security"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "只读分析当前分支与 origin 默认分支的差异，查找注入、认证和数据泄露风险。",
+      "impact": "readOnly",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 项目会话。",
+        "plans": null,
+        "requires": "Git 项目和 origin 远程。",
+        "notes": "命令自身不应用修复。"
+      }
+    },
+    {
+      "id": "builtin-simplify",
+      "chineseName": "简化已改代码",
+      "command": "/simplify",
+      "aliases": [],
+      "usage": "/simplify [target]",
+      "parameters": "可选路径或 PR 引用。",
+      "category": "review",
+      "searchTerms": [
+        "jianhua",
+        "jh",
+        "简化",
+        "清理",
+        "效率",
+        "simplify"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/skills"
+      ],
+      "changeEffect": "并行审查已改代码并应用清理、复用或效率方面的修复，不专门查找正确性 bug。",
+      "impact": "localWrite",
+      "isBundledSkill": true,
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code bundled skill；可见性可能受 skill 设置影响。",
+        "plans": null,
+        "requires": "允许编辑的项目会话。",
+        "notes": "需要先审查 diff 时使用 /code-review。"
+      }
+    },
+    {
+      "id": "builtin-run",
+      "chineseName": "运行应用",
+      "command": "/run",
+      "aliases": [],
+      "usage": "/run",
+      "parameters": "无；由 skill 按项目类型推断启动流程。",
+      "category": "review",
+      "searchTerms": [
+        "yunxing",
+        "yx",
+        "运行",
+        "启动应用",
+        "run"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/skills"
+      ],
+      "changeEffect": "构建、启动并操作项目应用，可能运行脚本、启动服务或产生本地副作用。",
+      "impact": "localWrite",
+      "isBundledSkill": true,
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code bundled skill；项目类型和环境决定可用性。",
+        "plans": null,
+        "requires": "项目有可推断或已记录的启动配方。",
+        "notes": "输入法只提供命令，不启动应用。"
+      }
+    },
+    {
+      "id": "builtin-verify",
+      "chineseName": "验证应用改动",
+      "command": "/verify",
+      "aliases": [],
+      "usage": "/verify",
+      "parameters": "无",
+      "category": "review",
+      "searchTerms": [
+        "yanzheng",
+        "yz",
+        "验证",
+        "验收",
+        "运行检查",
+        "verify"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/skills"
+      ],
+      "changeEffect": "通过构建、运行和观察应用验证改动，可能执行项目命令；必要时会记录运行配方。",
+      "impact": "localWrite",
+      "isBundledSkill": true,
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code bundled skill；项目类型和启动环境决定可用性。",
+        "plans": null,
+        "requires": "项目可构建或已有验证配方。",
+        "notes": "验证 skill 可能写入项目 .claude/skills/verify/SKILL.md，需用户审阅。"
+      }
+    },
+    {
+      "id": "builtin-doctor",
+      "chineseName": "诊断安装与设置",
+      "command": "/doctor",
+      "aliases": [
+        "/checkup"
+      ],
+      "usage": "/doctor [prompt-audit [path]]",
+      "parameters": "可选 prompt-audit 和路径；普通形式检查安装/设置。",
+      "category": "diagnostics",
+      "searchTerms": [
+        "zhenduan",
+        "zd",
+        "诊断",
+        "健康检查",
+        "doctor",
+        "checkup"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/skills",
+        "https://code.claude.com/docs/zh-CN/cli-reference"
+      ],
+      "changeEffect": "检查安装、PATH、设置、skill、MCP 和插件；确认后可提出或应用修复。",
+      "impact": "localWrite",
+      "isBundledSkill": true,
+      "conditions": {
+        "minimumVersion": "2.1.205（bundled skill 关闭时仍可输入）；2.1.283（prompt-audit）",
+        "platform": "Claude Code 会话；claude doctor CLI 形式只读。",
+        "plans": null,
+        "requires": "修复前应由用户确认；prompt-audit 需要目标配置文件。",
+        "notes": "本机 --help 也确认了 claude doctor 顶层诊断子命令。"
+      }
+    },
+    {
+      "id": "builtin-debug",
+      "chineseName": "调试会话",
+      "command": "/debug",
+      "aliases": [],
+      "usage": "/debug [description]",
+      "parameters": "可选问题描述，用于聚焦调试。",
+      "category": "diagnostics",
+      "searchTerms": [
+        "tiaoshi",
+        "ts",
+        "调试",
+        "日志",
+        "debug"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "从命令执行点开始捕获并分析会话调试日志，可能在本地生成含敏感上下文的日志。",
+      "impact": "localWrite",
+      "isBundledSkill": true,
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 会话；启动时没有 --debug 时由该命令开始记录。",
+        "plans": null,
+        "requires": "描述越具体越利于定位。",
+        "notes": "日志内容应按敏感信息处理。"
+      }
+    },
+    {
+      "id": "builtin-feedback",
+      "chineseName": "提交产品反馈",
+      "command": "/feedback",
+      "aliases": [
+        "/bug"
+      ],
+      "usage": "/feedback [report]",
+      "parameters": "可选反馈内容；会打开同意和历史选择界面。",
+      "category": "diagnostics",
+      "searchTerms": [
+        "fankui",
+        "fk",
+        "反馈",
+        "报告问题",
+        "bug",
+        "share"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "提交产品反馈；一方 Anthropic 连接会发送，其他场景可能写入本地 feedback-bundles 归档。",
+      "impact": "externalOrAccount",
+      "conditions": {
+        "minimumVersion": "2.1.229（VS Code 扩展的 /bug 行为）",
+        "platform": "Claude Code CLI；VS Code 扩展会使用自己的反馈对话框。",
+        "plans": null,
+        "requires": "用户在发送前确认包含的会话历史。",
+        "notes": "候选不会自动发送反馈。"
+      }
+    },
+    {
+      "id": "builtin-exit",
+      "chineseName": "退出或分离会话",
+      "command": "/exit",
+      "aliases": [
+        "/quit"
+      ],
+      "usage": "/exit",
+      "parameters": "无",
+      "category": "session",
+      "searchTerms": [
+        "tuichu",
+        "tc",
+        "退出",
+        "分离",
+        "quit"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "退出 CLI；若已附加到后台会话则分离，后台会话继续运行。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code CLI。",
+        "plans": null,
+        "requires": null,
+        "notes": "候选填入 /exit 后仍由用户决定提交。"
+      }
+    },
+    {
+      "id": "builtin-remote-control",
+      "chineseName": "开启远程控制",
+      "command": "/remote-control",
+      "aliases": [
+        "/rc"
+      ],
+      "usage": "/remote-control",
+      "parameters": "无",
+      "category": "session",
+      "searchTerms": [
+        "yuanchengkongzhi",
+        "yckz",
+        "远程控制",
+        "remote",
+        "rc"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/cli-reference"
+      ],
+      "changeEffect": "让当前会话可由 claude.ai 远程控制；改变会话可访问性和连接状态。",
+      "impact": "externalOrAccount",
+      "conditions": {
+        "minimumVersion": "2.1.206",
+        "platform": "需要 Claude Code CLI 与 claude.ai/Remote Control 支持。",
+        "plans": "需要 claude.ai 订阅和登录。",
+        "requires": "用户明确开启远程访问。",
+        "notes": "候选不会自动开启服务。"
+      }
+    },
+    {
+      "id": "builtin-teleport",
+      "chineseName": "拉取网络会话",
+      "command": "/teleport",
+      "aliases": [
+        "/tp"
+      ],
+      "usage": "/teleport",
+      "parameters": "无；打开网络会话选择器。",
+      "category": "session",
+      "searchTerms": [
+        "laqiwangluo",
+        "lqwl",
+        "网络会话",
+        "拉取",
+        "teleport",
+        "tp"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "把云端会话的分支和对话拉入当前终端。",
+      "impact": "externalOrAccount",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code CLI。",
+        "plans": "需要 claude.ai 订阅。",
+        "requires": "可访问的网络会话。",
+        "notes": "不适用于仅本地或未登录状态。"
+      }
+    },
+    {
+      "id": "builtin-desktop",
+      "chineseName": "在桌面应用继续",
+      "command": "/desktop",
+      "aliases": [
+        "/app"
+      ],
+      "usage": "/desktop",
+      "parameters": "无",
+      "category": "session",
+      "searchTerms": [
+        "zhuomian",
+        "zm",
+        "桌面",
+        "应用",
+        "desktop",
+        "app"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/cli-reference"
+      ],
+      "changeEffect": "在 Claude Code Desktop 应用中继续当前会话。",
+      "impact": "session",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "macOS 或 x64 Windows；需安装桌面应用。",
+        "plans": "需要 Claude 订阅。",
+        "requires": "当前会话可迁移到桌面应用。",
+        "notes": "本项目是 Windows WPF 输入法，但该命令仅在目标环境具备 Desktop 时显示。"
+      }
+    },
+    {
+      "id": "builtin-loop",
+      "chineseName": "循环运行提示",
+      "command": "/loop",
+      "aliases": [
+        "/proactive"
+      ],
+      "usage": "/loop [interval] [prompt]",
+      "parameters": "可选间隔和重复提示；省略时使用维护提示或 loop.md。",
+      "category": "automation",
+      "searchTerms": [
+        "xunhuan",
+        "xh",
+        "循环",
+        "持续",
+        "定期",
+        "loop",
+        "proactive"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands",
+        "https://code.claude.com/docs/zh-CN/skills"
+      ],
+      "changeEffect": "在会话保持打开期间重复运行提示，可能长期运行、调用工具并产生用量。",
+      "impact": "externalOrAccount",
+      "isBundledSkill": true,
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "Claude Code 会话保持打开时。",
+        "plans": null,
+        "requires": "间隔和提示要有清晰停止条件；可能需要网络/项目权限。",
+        "notes": "候选只填入，不自动建立循环。"
+      }
+    },
+    {
+      "id": "builtin-deep-research",
+      "chineseName": "深度研究",
+      "command": "/deep-research",
+      "aliases": [],
+      "usage": "/deep-research <question>",
+      "parameters": "必须提供研究问题。",
+      "category": "automation",
+      "searchTerms": [
+        "shenduyanjiu",
+        "sdyj",
+        "深度研究",
+        "研究",
+        "搜索",
+        "research"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "分散进行网络搜索、交叉核对来源并生成带引用报告，可能产生网络访问和用量。",
+      "impact": "externalOrAccount",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "支持该 workflow 的 Claude Code 会话。",
+        "plans": null,
+        "requires": "网络访问、明确问题和可用搜索工具。",
+        "notes": "输入法不代填问题，也不自动联网。"
+      }
+    },
+    {
+      "id": "builtin-schedule",
+      "chineseName": "安排云端例程",
+      "command": "/schedule",
+      "aliases": [
+        "/routines"
+      ],
+      "usage": "/schedule [description]",
+      "parameters": "可选例程描述；会话式引导创建、更新、列出或运行。",
+      "category": "automation",
+      "searchTerms": [
+        "ding shi",
+        "ds",
+        "定时",
+        "例程",
+        "routine",
+        "云端"
+      ],
+      "sourceLinks": [
+        "https://code.claude.com/docs/zh-CN/commands"
+      ],
+      "changeEffect": "创建、更新、列出或运行云端 Routine，可能改变远程计划并产生持续用量。",
+      "impact": "externalOrAccount",
+      "conditions": {
+        "minimumVersion": null,
+        "platform": "支持 Cloud Routine 的 Claude Code/账户环境；Console API key 场景可能给出不可用提示。",
+        "plans": null,
+        "requires": "需要网络、账户和用户对话确认。",
+        "notes": "高影响外部操作，候选只填入。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,868 @@
+{
+  "schemaVersion": 1,
+  "id": "common-communication",
+  "name": "日常沟通常用语",
+  "version": "1.0.0",
+  "sourceLanguage": "zh-CN",
+  "targetLanguage": "en",
+  "phrases": [
+    {
+      "zh": "是的，确认。",
+      "en": "Yes, confirmed.",
+      "keys": "确认 queren qr 是的 shide sd",
+      "id": "communication-001"
+    },
+    {
+      "zh": "把已经确定的内容保存下来。",
+      "en": "Save what has already been agreed on.",
+      "keys": "保存 baocun bc 确定 queding qd",
+      "id": "communication-002"
+    },
+    {
+      "zh": "说明为什么没有采用旧方案。",
+      "en": "Explain why the earlier approach was not adopted.",
+      "keys": "旧方案 jiufangan jfa 原因 yuanyin yy",
+      "id": "communication-003"
+    },
+    {
+      "zh": "把你犯的这些错误记录下来。",
+      "en": "Document the mistakes you made.",
+      "keys": "错误 cuowu cw 记录 jilu jl",
+      "id": "communication-004"
+    },
+    {
+      "zh": "把这件事记录为待解决事项。",
+      "en": "Record this as an unresolved item.",
+      "keys": "待解决 daijiejue djj 记录 jilu jl",
+      "id": "communication-005"
+    },
+    {
+      "zh": "交接前，请把当前工作收口，不要扩大工作范围。",
+      "en": "Wrap up the current work before the handoff, without expanding its scope.",
+      "keys": "交接 jiaojie jj 收口 shoukou sk 范围 fanwei fw",
+      "id": "communication-006"
+    },
+    {
+      "zh": "复述我的要求，并说明你的理解。",
+      "en": "Restate my requirements and explain your understanding of them.",
+      "keys": "复述 fushu fs 理解 lijie lj",
+      "id": "communication-007"
+    },
+    {
+      "zh": "不要增加不必要的流程。",
+      "en": "Do not add unnecessary steps.",
+      "keys": "流程 liucheng lc 不必要 bubiyao bby",
+      "id": "communication-008"
+    },
+    {
+      "zh": "你是如何转化的？",
+      "en": "How did you convert it?",
+      "keys": "转换 zhuanhuan zh 方法 fangfa ff",
+      "id": "communication-009"
+    },
+    {
+      "zh": "如果由你来介绍这些理论和技巧，你会怎么讲？",
+      "en": "How would you explain these theories and techniques?",
+      "keys": "介绍 jieshao js 理论 lilun ll 技巧 jiqiao jq",
+      "id": "communication-010"
+    },
+    {
+      "zh": "先回顾一下，你认为这篇稿件为什么可以通过？",
+      "en": "First, look back and explain why you think this draft can pass review.",
+      "keys": "回顾 huigu hg 稿件 gaojian gj 通过 tongguo tg",
+      "id": "communication-011"
+    },
+    {
+      "zh": "总结可复用的写作和创作方法，最多三条，要具体。",
+      "en": "Summarize up to three concrete, reusable methods for writing and creative work.",
+      "keys": "写作 xiezuo xz 方法 fangfa ff 三条 santiao st",
+      "id": "communication-012"
+    },
+    {
+      "zh": "可以按之前的方法替换新版本了吗？",
+      "en": "Can we replace it with the new version using the previous method now?",
+      "keys": "版本 banben bb 替换 tihuan th",
+      "id": "communication-013"
+    },
+    {
+      "zh": "我需要确认什么？",
+      "en": "What do I need to confirm?",
+      "keys": "确认 queren qr 什么 shenme sm",
+      "id": "communication-014"
+    },
+    {
+      "zh": "是不是过度审计了？",
+      "en": "Are we over-auditing this?",
+      "keys": "审计 shenji sj 过度 guodu gd",
+      "id": "communication-015"
+    },
+    {
+      "zh": "任务分派完成了吗？",
+      "en": "Has the task been assigned?",
+      "keys": "分派 fenpai fp 完成 wancheng wc",
+      "id": "communication-016"
+    },
+    {
+      "zh": "执行完成了吗？",
+      "en": "Has the work been completed?",
+      "keys": "执行 zhixing zx 完成 wancheng wc",
+      "id": "communication-017"
+    },
+    {
+      "zh": "看一下是否已经回报。",
+      "en": "Check whether a report has come back.",
+      "keys": "回报 huibao hb 检查 jiancha jc",
+      "id": "communication-018"
+    },
+    {
+      "zh": "检查网络问题出在服务器，还是我们这边。",
+      "en": "Check whether the network problem is on the server side or on our side.",
+      "keys": "网络 wangluo wl 服务器 fuwuqi fwq",
+      "id": "communication-019"
+    },
+    {
+      "zh": "你确定是运营商的问题，而不是我们这边的问题吗？",
+      "en": "Are you sure the problem is with the ISP rather than on our side?",
+      "keys": "运营商 yunyingshang yys 确定 queding qd",
+      "id": "communication-020"
+    },
+    {
+      "zh": "我的意思是检查本机",
+      "en": "I meant to check this computer.",
+      "keys": "本机 benji bj 意思 yisi ys",
+      "id": "communication-021"
+    },
+    {
+      "zh": "有没有简单的问题定位方法？",
+      "en": "Is there a simple way to pinpoint the problem?",
+      "keys": "定位 dingwei dw 简单 jiandan jd",
+      "id": "communication-022"
+    },
+    {
+      "zh": "我们现在工作受阻",
+      "en": "Our work is currently blocked.",
+      "keys": "受阻 shouzu sz 工作 gongzuo gz",
+      "id": "communication-023"
+    },
+    {
+      "zh": "我们网络恢复了吗？",
+      "en": "Has our network connection been restored?",
+      "keys": "网络 wangluo wl 恢复 huifu hf",
+      "id": "communication-024"
+    },
+    {
+      "zh": "翻译成中文。",
+      "en": "Translate it into Chinese.",
+      "keys": "翻译 fanyi fy 中文 zhongwen zw",
+      "id": "communication-025"
+    },
+    {
+      "zh": "用我能理解的方式解释。",
+      "en": "Explain it in terms I can understand.",
+      "keys": "理解 lijie lj 解释 jieshi js",
+      "id": "communication-026"
+    },
+    {
+      "zh": "把这些材料标记为：已尝试，有参考意义，但参考价值较低。",
+      "en": "Label these materials as already tried, with some but limited reference value.",
+      "keys": "材料 cailiao cl 标记 biaoji bj 参考 cankao ck",
+      "id": "communication-027"
+    },
+    {
+      "zh": "请用三段式写成一篇短文。",
+      "en": "Please turn it into a short article in three parts.",
+      "keys": "三段式 sanduanshi sds 短文 duanwen dw",
+      "id": "communication-028"
+    },
+    {
+      "zh": "请不要改稿，我希望你了解我的风格。",
+      "en": "Please do not edit the draft. I want you to understand my style.",
+      "keys": "改稿 gaigao gg 风格 fengge fg",
+      "id": "communication-029"
+    },
+    {
+      "zh": "这一步已经完成，接下来怎么操作？",
+      "en": "This step is complete. What should I do next?",
+      "keys": "下一步 xiayibu xyb 操作 caozuo cz",
+      "id": "communication-030"
+    },
+    {
+      "zh": "给我指令就行",
+      "en": "Just give me the instructions.",
+      "keys": "指令 zhiling zl 就行 jiuxing jx",
+      "id": "communication-031"
+    },
+    {
+      "zh": "回到上一个问题。",
+      "en": "Let's return to the previous question.",
+      "keys": "上一个 shangyige syg 问题 wenti wt",
+      "id": "communication-032"
+    },
+    {
+      "zh": "给我用于测试的指令。",
+      "en": "Give me instructions for testing.",
+      "keys": "测试 ceshi cs 指令 zhiling zl",
+      "id": "communication-033"
+    },
+    {
+      "zh": "给我修改后的指令。",
+      "en": "Give me the revised instructions.",
+      "keys": "修改 xiugai xg 指令 zhiling zl",
+      "id": "communication-034"
+    },
+    {
+      "zh": "给我完整提示词",
+      "en": "Give me the full prompt.",
+      "keys": "完整 wanzheng wz 提示词 tishici tsc",
+      "id": "communication-035"
+    },
+    {
+      "zh": "给我新的提示词，我再试试",
+      "en": "Give me a new prompt, and I'll try again.",
+      "keys": "提示词 tishici tsc 再试 zaishi zs",
+      "id": "communication-036"
+    },
+    {
+      "zh": "分析这张图片",
+      "en": "Analyze this image.",
+      "keys": "图片 tupian tp 分析 fenxi fx",
+      "id": "communication-037"
+    },
+    {
+      "zh": "我应该怎么办",
+      "en": "What should I do?",
+      "keys": "怎么办 zenmeban zmb",
+      "id": "communication-038"
+    },
+    {
+      "zh": "可以在本地零成本完成吗？",
+      "en": "Can this be done locally at no cost?",
+      "keys": "本地 bendi bd 零成本 lingchengben lcb",
+      "id": "communication-039"
+    },
+    {
+      "zh": "哪个支持中文",
+      "en": "Which one supports Chinese?",
+      "keys": "中文 zhongwen zw 支持 zhichi zc",
+      "id": "communication-040"
+    },
+    {
+      "zh": "不要限制每个方向的关键点，要包含我提供的全部内容。",
+      "en": "Do not limit the key points for each direction. Include all the content I provided.",
+      "keys": "全部 quanbu qb 内容 neirong nr 关键点 guanjiandian gjd",
+      "id": "communication-041"
+    },
+    {
+      "zh": "我没有要求展开时，只回答我的问题，控制在200字以内；如果说不清，请先说明并询问。",
+      "en": "Unless I ask for more detail, answer only my question in no more than 200 Chinese characters. If that is not enough, explain this and ask me first.",
+      "keys": "简短 jianduan jd 两百字 liangbaizi lbz",
+      "id": "communication-042"
+    },
+    {
+      "zh": "直接复制就行，不用改格式，对吗？",
+      "en": "I can just copy it without changing the formatting, right?",
+      "keys": "复制 fuzhi fz 格式 geshi gs",
+      "id": "communication-043"
+    },
+    {
+      "zh": "测试没有问题",
+      "en": "Testing went fine.",
+      "keys": "测试 ceshi cs 没问题 meiwenti mwt",
+      "id": "communication-044"
+    },
+    {
+      "zh": "已经完成了",
+      "en": "It's done.",
+      "keys": "完成 wancheng wc",
+      "id": "communication-045"
+    },
+    {
+      "zh": "一次性给我完整指令。",
+      "en": "Give me the complete instructions in one go.",
+      "keys": "一次性 yicixing ycx 完整 wanzheng wz",
+      "id": "communication-046"
+    },
+    {
+      "zh": "不，你直接生成",
+      "en": "No, generate it directly.",
+      "keys": "直接 zhijie zj 生成 shengcheng sc",
+      "id": "communication-047"
+    },
+    {
+      "zh": "是不是应该补上一段简介？",
+      "en": "Should we add a short introduction?",
+      "keys": "简介 jianjie jj 补充 buchong bc",
+      "id": "communication-048"
+    },
+    {
+      "zh": "给我英文版的 README。",
+      "en": "Give me the README in English.",
+      "keys": "英文 yingwen yw README readme",
+      "id": "communication-049"
+    },
+    {
+      "zh": "用不超过400字总结这张图的问题。",
+      "en": "Summarize the issues with this image in no more than 400 Chinese characters.",
+      "keys": "图片 tupian tp 总结 zongjie zj 四百字 sibaizi sbz",
+      "id": "communication-050"
+    },
+    {
+      "zh": "不对，我感觉你的判断有误",
+      "en": "No, I think your judgment is wrong.",
+      "keys": "不对 budui bd 判断 panduan pd",
+      "id": "communication-051"
+    },
+    {
+      "zh": "这条指令不够明确，请仔细检查并补充。",
+      "en": "This instruction is not clear enough. Please review it carefully and fill in what's missing.",
+      "keys": "明确 mingque mq 检查 jiancha jc 补充 buchong bc",
+      "id": "communication-052"
+    },
+    {
+      "zh": "刚刚是我对指令的描述有误。",
+      "en": "My earlier description of the instructions was wrong.",
+      "keys": "描述 miaoshu ms 错误 cuowu cw",
+      "id": "communication-053"
+    },
+    {
+      "zh": "在我确认最终修改方向前，先不要调整。",
+      "en": "Do not make adjustments until I confirm the final direction of the changes.",
+      "keys": "方向 fangxiang fx 确认 queren qr 调整 tiaozheng tz",
+      "id": "communication-054"
+    },
+    {
+      "zh": "工作流搭好后，要能随时调整风格、参考和方向。",
+      "en": "Once the workflow is in place, it should allow changes to the style, references, and direction at any time.",
+      "keys": "工作流 gongzuoliu gzl 调整 tiaozheng tz",
+      "id": "communication-055"
+    },
+    {
+      "zh": "稍等，我感觉工作流程不对",
+      "en": "Hold on. I think the workflow is wrong.",
+      "keys": "稍等 shaodeng sd 流程 liucheng lc",
+      "id": "communication-056"
+    },
+    {
+      "zh": "先不拓展，解答我的问题。",
+      "en": "Do not elaborate yet. Answer my question first.",
+      "keys": "拓展 tuozhan tz 解答 jieda jd",
+      "id": "communication-057"
+    },
+    {
+      "zh": "一步一步来。",
+      "en": "Let's take this one step at a time.",
+      "keys": "一步一步 yibuyibu ybyb",
+      "id": "communication-058"
+    },
+    {
+      "zh": "先仔细回顾一下，目标和我最后整理的需求还一致吗？",
+      "en": "First, review this carefully: does the goal still match the requirements I last set out?",
+      "keys": "目标 mubiao mb 需求 xuqiu xq 一致 yizhi yz",
+      "id": "communication-059"
+    },
+    {
+      "zh": "在现有基础上拓展新功能就可以。",
+      "en": "Just build the new features on the existing foundation.",
+      "keys": "功能 gongneng gn 基础 jichu jc",
+      "id": "communication-060"
+    },
+    {
+      "zh": "给我一条能在我离开期间有效推进任务的指令。",
+      "en": "Give me an instruction that will keep the task moving forward effectively while I'm away.",
+      "keys": "离开 likai lk 推进 tuijin tj",
+      "id": "communication-061"
+    },
+    {
+      "zh": "我发错了，不要去理解它",
+      "en": "I sent the wrong thing. Please disregard it.",
+      "keys": "发错 facuo fc 忽略 hulue hl",
+      "id": "communication-062"
+    },
+    {
+      "zh": "任务进度不对，请重新查看上下文。",
+      "en": "The task progress is off. Please review the context again.",
+      "keys": "进度 jindu jd 上下文 shangxiawen sxw",
+      "id": "communication-063"
+    },
+    {
+      "zh": "我没有让你生成图片，你理解错了。",
+      "en": "I did not ask you to generate an image. You misunderstood.",
+      "keys": "生成 shengcheng sc 图片 tupian tp 理解 lijie lj",
+      "id": "communication-064"
+    },
+    {
+      "zh": "先改好台词，再做下一步。",
+      "en": "Fix the dialogue first, then move on to the next step.",
+      "keys": "台词 taici tc 下一步 xiayibu xyb",
+      "id": "communication-065"
+    },
+    {
+      "zh": "可以，下一步",
+      "en": "Okay, move on to the next step.",
+      "keys": "可以 keyi ky 下一步 xiayibu xyb",
+      "id": "communication-066"
+    },
+    {
+      "zh": "我要看到报告。",
+      "en": "I want to see the report.",
+      "keys": "报告 baogao bg",
+      "id": "communication-067"
+    },
+    {
+      "zh": "请立刻输出报告正文。",
+      "en": "Provide the report text now.",
+      "keys": "报告 baogao bg 正文 zhengwen zw",
+      "id": "communication-068"
+    },
+    {
+      "zh": "保留文字模式的判断深度，语音里只说结论、理由和下一步。",
+      "en": "Use the same depth of judgment as in text mode, but in voice replies give only the conclusion, the reasons, and the next step.",
+      "keys": "语音 yuyin yy 结论 jielun jl 理由 liyou ly",
+      "id": "communication-069"
+    },
+    {
+      "zh": "简短一些",
+      "en": "Keep it shorter.",
+      "keys": "简短 jianduan jd",
+      "id": "communication-070"
+    },
+    {
+      "zh": "检查一下，没问题就进入下一步。",
+      "en": "Check it, and proceed to the next step if there are no issues.",
+      "keys": "检查 jiancha jc 下一步 xiayibu xyb",
+      "id": "communication-071"
+    },
+    {
+      "zh": "理解基本一致，我们直接开始第一项工作。",
+      "en": "Our understanding is broadly aligned. Let's start the first task.",
+      "keys": "理解 lijie lj 一致 yizhi yz 开始 kaishi ks",
+      "id": "communication-072"
+    },
+    {
+      "zh": "还是先用旧版本，供自己使用，暂时不美化。",
+      "en": "Let's stick with the old version for personal use for now and hold off on visual polish.",
+      "keys": "旧版本 jiubanben jbb 美化 meihua mh",
+      "id": "communication-073"
+    },
+    {
+      "zh": "你理解错了，我是想跟你讨论。",
+      "en": "You misunderstood. I want to discuss it with you.",
+      "keys": "讨论 taolun tl 理解 lijie lj",
+      "id": "communication-074"
+    },
+    {
+      "zh": "确认一下，我们已经到这个环节了吗？",
+      "en": "Please confirm: have we reached this stage yet?",
+      "keys": "确认 queren qr 环节 huanjie hj",
+      "id": "communication-075"
+    },
+    {
+      "zh": "我来试一试。",
+      "en": "I'll give it a try.",
+      "keys": "试一试 shiyishi sys",
+      "id": "communication-076"
+    },
+    {
+      "zh": "你是不是理解错误了",
+      "en": "Did you misunderstand?",
+      "keys": "理解 lijie lj 错误 cuowu cw",
+      "id": "communication-077"
+    },
+    {
+      "zh": "走样更严重了，我们停止",
+      "en": "The result has drifted further. Let's stop.",
+      "keys": "走样 zouyang zy 停止 tingzhi tz",
+      "id": "communication-078"
+    },
+    {
+      "zh": "先梳理我的想法，跟我确认后再设计，不要扩大或随意简化问题。",
+      "en": "Organize my ideas first and confirm them with me before designing. Do not broaden or casually simplify the problem.",
+      "keys": "梳理 shuli sl 确认 queren qr 设计 sheji sj",
+      "id": "communication-079"
+    },
+    {
+      "zh": "回答我的问题",
+      "en": "Answer my question.",
+      "keys": "回答 huida hd 问题 wenti wt",
+      "id": "communication-080"
+    },
+    {
+      "zh": "我认为你的分析不对，请重新分析。",
+      "en": "I think your analysis is wrong. Please analyze it again.",
+      "keys": "分析 fenxi fx 重新 chongxin cx",
+      "id": "communication-081"
+    },
+    {
+      "zh": "你理解错了，我还没有发给你新项目。",
+      "en": "You misunderstood. I haven't sent you the new project yet.",
+      "keys": "项目 xiangmu xm 理解 lijie lj",
+      "id": "communication-082"
+    },
+    {
+      "zh": "准备好后回复“好的”，我再给你新任务。",
+      "en": "Reply \"Okay\" when you're ready, and I'll give you the new task.",
+      "keys": "准备 zhunbei zb 新任务 xinrenwu xrw",
+      "id": "communication-083"
+    },
+    {
+      "zh": "回到主题，给出你的方法。",
+      "en": "Let's return to the topic. Give me your approach.",
+      "keys": "主题 zhuti zt 方法 fangfa ff",
+      "id": "communication-084"
+    },
+    {
+      "zh": "让他完成后直接回报我，我来转述。",
+      "en": "Have him report directly to me when he's done, and I'll relay it.",
+      "keys": "回报 huibao hb 转述 zhuanshu zs",
+      "id": "communication-085"
+    },
+    {
+      "zh": "还有什么需要我补充的吗？",
+      "en": "Is there anything else you need me to add?",
+      "keys": "补充 buchong bc 信息 xinxi xx",
+      "id": "communication-086"
+    },
+    {
+      "zh": "我如何验收",
+      "en": "How should I review and accept the result?",
+      "keys": "验收 yanshou ys",
+      "id": "communication-087"
+    },
+    {
+      "zh": "不要精炼版，写一条复杂的提示词。",
+      "en": "I don't want a concise version. Write one detailed, complex prompt.",
+      "keys": "精炼 jinglian jl 提示词 tishici tsc",
+      "id": "communication-088"
+    },
+    {
+      "zh": "恢复了，现在可以切换了",
+      "en": "It's working again. We can switch now.",
+      "keys": "恢复 huifu hf 切换 qiehuan qh",
+      "id": "communication-089"
+    },
+    {
+      "zh": "确认一下，是这个吧",
+      "en": "Please confirm: is this the one?",
+      "keys": "确认 queren qr 这个 zhege zg",
+      "id": "communication-090"
+    },
+    {
+      "zh": "明白了，我们回到主要工作。",
+      "en": "Understood. Let's return to the main task.",
+      "keys": "明白 mingbai mb 回到 huidao hd",
+      "id": "communication-091"
+    },
+    {
+      "zh": "图由我来画，你不用做图。",
+      "en": "I'll create the artwork. You don't need to make it.",
+      "keys": "画图 huatu ht 我来 wolai wl",
+      "id": "communication-092"
+    },
+    {
+      "zh": "不一致啊",
+      "en": "There's an inconsistency.",
+      "keys": "一致 yizhi yz 不一致 buyizhi byz",
+      "id": "communication-093"
+    },
+    {
+      "zh": "先不做了，先讨论如何保证一致性。",
+      "en": "Let's pause the work and first discuss how to ensure consistency.",
+      "keys": "暂停 zanting zt 一致性 yizhixing yzx",
+      "id": "communication-094"
+    },
+    {
+      "zh": "可行，你来开始吧",
+      "en": "That approach is viable. Go ahead and start.",
+      "keys": "可行 kexing kx 开始 kaishi ks",
+      "id": "communication-095"
+    },
+    {
+      "zh": "你来直接改吧",
+      "en": "Go ahead and make the changes directly.",
+      "keys": "修改 xiugai xg 直接 zhijie zj",
+      "id": "communication-096"
+    },
+    {
+      "zh": "我们回到起点，重新思考。",
+      "en": "Let's go back to the starting point and rethink this.",
+      "keys": "起点 qidian qd 思考 sikao sk",
+      "id": "communication-097"
+    },
+    {
+      "zh": "是的，你的理解正确，可以进行总结了。",
+      "en": "Yes, you've understood correctly. You can summarize now.",
+      "keys": "理解正确 总结 lijiezhengque ljzq zongjie zj",
+      "id": "communication-098"
+    },
+    {
+      "zh": "是的，我认为你可以开始整理了。",
+      "en": "Yes, I think you can start organizing now.",
+      "keys": "开始整理 kaishizhengli kszl",
+      "id": "communication-099"
+    },
+    {
+      "zh": "是的，你可以开始了。",
+      "en": "Yes, you can start.",
+      "keys": "可以开始 keyikaishi kyks",
+      "id": "communication-100"
+    },
+    {
+      "zh": "你的理解正确，可以自行继续推进。到你认为下一阶段必须由我纠偏或参与时，再叫我。",
+      "en": "You've understood correctly. Keep going on your own, and call me back when you think the next stage requires me to correct the direction or take part.",
+      "keys": "自主推进 必要参与 zizhu tuijin zztj",
+      "id": "communication-101"
+    },
+    {
+      "zh": "先不要改，先沟通。",
+      "en": "Don't make changes yet. Let's discuss it first.",
+      "keys": "先沟通 不要改 xiangoutong xgt",
+      "id": "communication-102"
+    },
+    {
+      "zh": "请先复述你理解的意图，然后再附上指令。",
+      "en": "First restate the intent as you understand it, then include the instruction.",
+      "keys": "复述意图 再给指令 fushu fs zhiling zl",
+      "id": "communication-103"
+    },
+    {
+      "zh": "先不要开始总结，先跟我确认我们理解一致。",
+      "en": "Don't start summarizing yet. First confirm with me that we're on the same page.",
+      "keys": "先对齐 再总结 duiqi dq zongjie zj",
+      "id": "communication-104"
+    },
+    {
+      "zh": "我们就沟通这一个问题。",
+      "en": "Let's discuss only this issue.",
+      "keys": "只讨论一个问题 zhitaolun ztl",
+      "id": "communication-105"
+    },
+    {
+      "zh": "现在要进行另一项任务，请不要和上面的内容搞混。",
+      "en": "We're moving on to another task now. Please don't mix it up with the content above.",
+      "keys": "另一任务 不要搞混 lingyirenwu lyrw",
+      "id": "communication-106"
+    },
+    {
+      "zh": "接下来会审计新项目，请不要带入之前的内容",
+      "en": "We'll be auditing a new project next. Please don't carry over content from before.",
+      "keys": "新项目 审计 不带入 shenji sj",
+      "id": "communication-107"
+    },
+    {
+      "zh": "不要替我决定做什么，先删除重复部分",
+      "en": "Don't decide what to do on my behalf. Remove the duplicate parts first.",
+      "keys": "不要替我决定 删除重复 chongfu cf",
+      "id": "communication-108"
+    },
+    {
+      "zh": "请评价这个思路是否可行、是否有遗漏、是否需要压缩，不要随意扩大或缩小范围。",
+      "en": "Please assess whether this approach is feasible, whether anything is missing, and whether it needs to be trimmed down. Don't arbitrarily expand or shrink its scope.",
+      "keys": "评价思路 范围 遗漏 pingjia pj fanwei fw",
+      "id": "communication-109"
+    },
+    {
+      "zh": "一步一步来，完成一步再告知我下一步。",
+      "en": "Let's take it one step at a time. Tell me the next step after we've completed the current one.",
+      "keys": "一步一步 下一步 yibuyibu ybyb",
+      "id": "communication-110"
+    },
+    {
+      "zh": "请一条一条地修改。",
+      "en": "Please make the changes one item at a time.",
+      "keys": "一条一条 修改 yitiaoyitiao ytyt",
+      "id": "communication-111"
+    },
+    {
+      "zh": "我们不在这个话题上继续展开，完成当前需求后就回归正题。",
+      "en": "Let's not expand on this topic any further. Once this request is done, let's return to the main topic.",
+      "keys": "回归正题 不展开 huiguizhengti hgzt",
+      "id": "communication-112"
+    },
+    {
+      "zh": "由你完全修改吧，你可以自行推进，直到完成全部内容",
+      "en": "You can revise it completely and proceed on your own until all the content is finished.",
+      "keys": "自行推进 全部完成 zixingtuijin zxtj",
+      "id": "communication-113"
+    },
+    {
+      "zh": "我们先讨论，再执行。",
+      "en": "Let's discuss it first, then take action.",
+      "keys": "先讨论 再执行 xiantaolun xtl",
+      "id": "communication-114"
+    },
+    {
+      "zh": "我希望你的回复再简短一些。",
+      "en": "I'd like your replies to be shorter.",
+      "keys": "回复简短 jianjie jj jianduan jd",
+      "id": "communication-115"
+    },
+    {
+      "zh": "请用我能理解的直白语言沟通，不要堆技术字段。",
+      "en": "Please communicate in plain language I can understand, without piling on technical field names.",
+      "keys": "大白话 直白 技术字段 dabaihua dbh",
+      "id": "communication-116"
+    },
+    {
+      "zh": "长篇规则和内容用文字回复即可，不需要语音。",
+      "en": "For long rules and content, a text reply is enough. There's no need for a spoken reply.",
+      "keys": "长内容 文字回复 wenzi wz yuyin yy",
+      "id": "communication-117"
+    },
+    {
+      "zh": "请简单告诉我你的倾向。",
+      "en": "Just tell me briefly which way you lean.",
+      "keys": "你的倾向 qingxiang qx",
+      "id": "communication-118"
+    },
+    {
+      "zh": "请用三个段落回答，不要长篇大论。",
+      "en": "Please answer in three paragraphs and avoid a lengthy explanation.",
+      "keys": "三个段落 不长篇 sangueduanluo sgdl",
+      "id": "communication-119"
+    },
+    {
+      "zh": "工作期间请尽量客观评价，不要迁就我的观点。",
+      "en": "During work, please be as objective as possible in your evaluations. Don't simply cater to my views.",
+      "keys": "客观 不迁就 keguan kg qianjiu qj",
+      "id": "communication-120"
+    },
+    {
+      "zh": "不要迁就我的回答，先告诉我到底能不能做，以及如何实现。",
+      "en": "Don't just go along with my answer. First tell me whether it can actually be done and how to do it.",
+      "keys": "可行性 能不能做 kexingxing kxx",
+      "id": "communication-121"
+    },
+    {
+      "zh": "这个质量真的不错吗？你的评价标准来自哪里？",
+      "en": "Is the quality really good? Where do your evaluation criteria come from?",
+      "keys": "评价标准 质量 pingjiabiaozhun pjbz",
+      "id": "communication-122"
+    },
+    {
+      "zh": "你的总结有没有误解我的意思或意图？我需要检查。",
+      "en": "Does your summary misrepresent what I meant or intended? I need to check it.",
+      "keys": "总结 意图 是否误解 yitu yt wujie wj",
+      "id": "communication-123"
+    },
+    {
+      "zh": "你要不要看看其他AI的判断？",
+      "en": "Would you like to look at what other AIs think?",
+      "keys": "其他AI 判断 qita qt panduan pd",
+      "id": "communication-124"
+    },
+    {
+      "zh": "现在你的回答，更多偏解释，而不是偏解决方法了",
+      "en": "Your replies are focusing more on explanations than on solutions.",
+      "keys": "少解释 解决方法 jiejuefangfa jjff",
+      "id": "communication-125"
+    },
+    {
+      "zh": "请立刻输出报告正文，道歉不要超过一句话。",
+      "en": "Please provide the report text immediately, and keep any apology to no more than one sentence.",
+      "keys": "报告正文 直接输出 baogao bg zhengwen zw",
+      "id": "communication-126"
+    },
+    {
+      "zh": "你的总结通过了，理解基本正确。可以开始改稿，不要大改，并标记改动。",
+      "en": "Your summary is approved, and your understanding is basically correct. You can start revising the draft. Do not make major changes, and mark all your changes.",
+      "keys": "总结通过 标记改动 biaojigaidong bjgd",
+      "id": "communication-127"
+    },
+    {
+      "zh": "先把后续步骤列出，再次描述项目目标和实现方案",
+      "en": "List the next steps first, then restate the project goal and the implementation plan.",
+      "keys": "列步骤 目标 方案 liebuzhou lbz",
+      "id": "communication-128"
+    },
+    {
+      "zh": "我想看到具体内容，也想知道你打算怎么使用。",
+      "en": "I want to see the actual content and know how you plan to use it.",
+      "keys": "具体内容 怎么用 jutineirong jtnr",
+      "id": "communication-129"
+    },
+    {
+      "zh": "不要改我的开头，就照着我的开头续写下去。",
+      "en": "Don't change my opening. Continue writing from the opening I provided.",
+      "keys": "保留开头 续写 xuxie xx kaitou kt",
+      "id": "communication-130"
+    },
+    {
+      "zh": "请在我的稿子上用括号标注建议补充或修改的地方及建议改法，不要修改原稿。",
+      "en": "Please use parentheses in my draft to mark where you suggest additions or changes and how to make them. Do not alter the original draft.",
+      "keys": "括号批注 不改原稿 kuohao kh biaozhu bz",
+      "id": "communication-131"
+    },
+    {
+      "zh": "整理成文档，我需要用户原话描述，你的翻译似乎有错误",
+      "en": "Put it into a document. I need the user's original wording; your translation seems to contain an error.",
+      "keys": "原话 翻译错误 yuanhua yh fanyicuowu fycw",
+      "id": "communication-132"
+    },
+    {
+      "zh": "我们先粗拆，再细拆。",
+      "en": "Let's start with a rough breakdown, then break it down in detail.",
+      "keys": "先粗拆 再细拆 cuchai cc xichai xc",
+      "id": "communication-133"
+    },
+    {
+      "zh": "完成目标不一定非得使用AI模型工具，普通工具也可能做得到。",
+      "en": "We don't necessarily need an AI model to achieve the goal. Ordinary tools might work too.",
+      "keys": "普通工具 不一定AI putonggongju ptgj",
+      "id": "communication-134"
+    },
+    {
+      "zh": "先讨论测试方案是否可行，可行后再选择怎么执行。",
+      "en": "Let's first discuss whether the test plan is feasible. If it is, we'll decide how to carry it out.",
+      "keys": "测试方案 先讨论 ceshi cs fangan fa",
+      "id": "communication-135"
+    },
+    {
+      "zh": "这类简单问题可以一次问一批；一次只问一个的，是值得讨论的点。",
+      "en": "Questions this simple can be asked in a batch. One-at-a-time questions are for points worth discussing.",
+      "keys": "批量提问 一次一问 piliangtiwen pltw",
+      "id": "communication-136"
+    },
+    {
+      "zh": "先进行一致性校验",
+      "en": "Check for consistency first.",
+      "keys": "一致性校验 yizhixing yzx jiaoyan jy",
+      "id": "communication-137"
+    },
+    {
+      "zh": "这次请生成可以传播的版本；如果做不到，请告诉我需要哪些帮助，不要只给最小版本。",
+      "en": "Please produce a version suitable for sharing this time. If you can't, tell me what help you need instead of giving me a minimal version.",
+      "keys": "可传播版本 需要帮助 kechuanbo kcb bangzhu bz",
+      "id": "communication-138"
+    },
+    {
+      "zh": "这份报告请记录用户真实的感受和想法，不要写得太满、太绝对。",
+      "en": "In this report, record the user's actual feelings and thoughts without overstating them or making overly absolute claims.",
+      "keys": "真实感受 不绝对 zhenshi zs juedui jd",
+      "id": "communication-139"
+    },
+    {
+      "zh": "之后的指令要明确告诉我在哪里输入",
+      "en": "For future instructions, explicitly tell me where to enter them.",
+      "keys": "哪里输入 明确位置 nali nl shuru sr",
+      "id": "communication-140"
+    },
+    {
+      "zh": "你能让你的语速再快一倍吗？",
+      "en": "Can you double your speaking speed?",
+      "keys": "语速快一倍 yusu ys jiakuai jk",
+      "id": "communication-141"
+    },
+    {
+      "zh": "请加快语速，不要给我安抚式的报告。",
+      "en": "Please speak faster, and don't give me reports meant to reassure me.",
+      "keys": "加快语速 不安抚 jiakuai jk yusu ys",
+      "id": "communication-142"
+    },
+    {
+      "zh": "请生成一份我们的沟通规则，用文字形式呈现。",
+      "en": "Please write down our communication rules.",
+      "keys": "沟通规则 文字版 goutongguize gtgz",
+      "id": "communication-143"
+    }
+  ]
+}

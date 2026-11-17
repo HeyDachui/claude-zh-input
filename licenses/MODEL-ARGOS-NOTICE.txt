@@ -1,0 +1,13 @@
+Claude 中文输入法分享包中的 models/translate-zh_en-1_9 来自 Argos Translate 1.9.0 的中文到英文模型包。
+
+随模型保留的 README.md 记录：
+- OPUS-MT 派生模型作者：Jörg Tiedemann、Santhosh Thottingal；
+- 原始 OPUS 模型来源及论文信息；
+- 原始 OPUS 模型采用 CC-BY 4.0；
+- 来源包：translate-zh_en-1_9.argosmodel。
+
+本项目不声称拥有该模型，也不把公开模型加密后描述为私有模型。重新分发时请同时保留 models/translate-zh_en-1_9/README.md、metadata.json 和本说明，并遵守 CC-BY 4.0 及模型来源方的要求。
+
+许可原文：https://creativecommons.org/licenses/by/4.0/legalcode
+模型包来源：https://argos-net.com/v1/translate-zh_en-1_9.argosmodel
+本包中的模型、分词数据与随模型附带的 README、元数据未作修改。

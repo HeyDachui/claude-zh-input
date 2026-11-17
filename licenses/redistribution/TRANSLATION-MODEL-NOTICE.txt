@@ -1,0 +1,24 @@
+Primary translation model in Claude Chinese Input 1.3:
+Qwen3.5-4B by the Qwen team, Apache License 2.0.
+Original model: https://huggingface.co/Qwen/Qwen3.5-4B
+Original revision: 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a
+Quantized GGUF provided by Unsloth:
+https://huggingface.co/unsloth/Qwen3.5-4B-GGUF
+Revision: e87f176479d0855a907a41277aca2f8ee7a09523
+Qwen3.5-4B-Q5_K_M.gguf, SHA-256:
+8814232b85594dcd46c50e5b8b29324a7efe9e746edbe8a3d1df3d3fce7aad39
+The model file is redistributed unchanged. Its Apache-2.0 license is
+Qwen3.5-4B-Apache-2.0.txt in this directory. Model weights are third-party
+content and are not claimed as the input method author's private code.
+
+Inference uses unmodified llama.cpp b11580 CPU DLLs from the official release:
+https://github.com/ggml-org/llama.cpp/releases/tag/b11580
+Runtime archive SHA-256:
+430efe5b4f10db617ae0f5732f7e9360fa7be4344d1d97688e09bbd3b5b084da
+See llama.cpp-b11580-MIT.txt and llama-LLVM-OpenMP.txt for the original licenses.
+Only CPU DLLs and the product's own private-stdio executable are installed.
+The llama.cpp HTTP server and RPC executables are not included.
+
+The previous Argos model and CPU dependencies remain in the package to retain
+the verified installation layout. They are not used as a translation fallback
+by the 1.3 primary worker. Their existing original licenses remain applicable.

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "my-phrases",
+  "name": "我的短语示例",
+  "version": "1.0.0",
+  "sourceLanguage": "zh-CN",
+  "targetLanguage": "en",
+  "phrases": [
+    {
+      "id": "email-format",
+      "zh": "请把这段文字整理成一封邮件。",
+      "en": "Please turn this text into an email.",
+      "keys": "邮件 youjian yj 格式 geshi gs"
+    },
+    {
+      "id": "date-format",
+      "zh": "请把日期统一为 YYYY-MM-DD 格式。",
+      "en": "Please format all dates as YYYY-MM-DD.",
+      "keys": "日期 riqi rq 格式 geshi gs"
+    },
+    {
+      "id": "option-example",
+      "zh": "请为每个选项补充一个例子。",
+      "en": "Please add one example for each option.",
+      "keys": "例子 lizi lz 选项 xuanxiang xx"
+    }
+  ]
+}

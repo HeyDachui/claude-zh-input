@@ -1,0 +1,6 @@
+The X11/keysym.h and X11/keysymdef.h headers are from the X11 keysym
+definitions distributed with the official librime dependency bundle. Their
+Open Group and Digital Equipment Corporation permission and disclaimer text
+is retained at the beginning of the headers themselves.
+
+Source context: https://github.com/rime/librime/tree/33e7814

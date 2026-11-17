@@ -1,0 +1,77 @@
+<Window x:Class="ClaudeZhInput.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Claude 中文输入法" Style="{StaticResource {x:Type Window}}" Width="760" Height="660" MinWidth="620" MinHeight="540" WindowStartupLocation="CenterScreen" Closing="WindowClosing">
+  <Grid x:Name="Scene">
+    <Border x:Name="SceneVeil" Background="#CBEFEAE1"/>
+    <Grid Margin="24">
+      <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+      <StackPanel Margin="0,0,0,18"><TextBlock Text="Claude 中文输入法" FontSize="26" FontWeight="SemiBold"/><TextBlock x:Name="VersionLabel" Foreground="{DynamicResource Muted}" FontSize="13" TextWrapping="Wrap" Margin="0,6,0,0"/></StackPanel>
+      <TabControl x:Name="Pages" Grid.Row="1" Background="{DynamicResource Surface}" BorderBrush="{DynamicResource Stroke}" Foreground="{DynamicResource Ink}" SelectionChanged="TabChanged">
+        <TabControl.Resources>
+          <Style TargetType="TabItem"><Setter Property="Padding" Value="16,9"/><Setter Property="Foreground" Value="{DynamicResource Ink}"/>
+            <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="TabItem">
+              <Border x:Name="TabFrame" Background="{DynamicResource Surface}" BorderBrush="{DynamicResource Stroke}" BorderThickness="1" Padding="{TemplateBinding Padding}"><ContentPresenter ContentSource="Header" RecognizesAccessKey="True"/></Border>
+              <ControlTemplate.Triggers><Trigger Property="IsSelected" Value="True"><Setter TargetName="TabFrame" Property="Background" Value="{DynamicResource Hover}"/><Setter TargetName="TabFrame" Property="BorderBrush" Value="{DynamicResource Accent}"/><Setter TargetName="TabFrame" Property="TextElement.FontWeight" Value="SemiBold"/></Trigger><Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="TabFrame" Property="BorderThickness" Value="2"/></Trigger></ControlTemplate.Triggers>
+            </ControlTemplate></Setter.Value></Setter>
+          </Style>
+          <Style TargetType="TextBox"><Setter Property="Background" Value="{DynamicResource Surface}"/><Setter Property="Foreground" Value="{DynamicResource Ink}"/><Setter Property="BorderBrush" Value="{DynamicResource Stroke}"/><Setter Property="Padding" Value="10"/><Setter Property="TextWrapping" Value="Wrap"/><Setter Property="VerticalScrollBarVisibility" Value="Auto"/></Style>
+        </TabControl.Resources>
+        <TabItem Header="输入与外观">
+          <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="20">
+            <TextBlock Text="按 Win+Space 选择“Claude 中文输入法”" FontSize="16" FontWeight="SemiBold"/>
+            <TextBlock Text="第一次安装从普通中文开始；每个应用可保留自己的输入法选择。" TextWrapping="Wrap" Foreground="{DynamicResource Muted}" Margin="0,6,0,22"/>
+            <RadioButton x:Name="NormalMode" Content="普通中文：拼音选词后直接输入中文" GroupName="InputMode" Checked="ModeChanged" Margin="0,0,0,14" Foreground="{DynamicResource Ink}"/>
+            <RadioButton x:Name="ClaudeMode" Content="整句英文：中文句末自动翻译" GroupName="InputMode" Checked="ModeChanged" Foreground="{DynamicResource Ink}"/>
+            <TextBlock Text="Ctrl+Shift+M 切换模式；单按 Shift 切换字母直输。" TextWrapping="Wrap" Foreground="{DynamicResource Muted}" Margin="22,12,0,18"/>
+            <TextBlock Text="句末自动输出英文，可以接着输入下一句。需要找回中文时，点击状态栏“原文”或打开“最近翻译”。翻译中按 Esc 可保留中文。" Foreground="{DynamicResource Muted}" TextWrapping="Wrap" FontSize="12" Margin="22,0,0,22"/>
+            <DockPanel Margin="0,0,0,16"><Button DockPanel.Dock="Right" Content="换皮肤" Click="SkinClicked"/><StackPanel VerticalAlignment="Center"><TextBlock Text="候选窗皮肤" FontWeight="SemiBold"/><TextBlock x:Name="SkinDescription" Foreground="{DynamicResource Muted}" FontSize="12" Margin="0,5,0,0"/></StackPanel></DockPanel>
+            <DockPanel><Button DockPanel.Dock="Right" Content="查看指令" Click="CommandsClicked"/><StackPanel VerticalAlignment="Center"><TextBlock Text="Claude Code 指令库" FontWeight="SemiBold"/><TextBlock Text="整句英文模式输入 ;; 或按 Ctrl+; 打开" Foreground="{DynamicResource Muted}" FontSize="12" Margin="0,5,0,0"/></StackPanel></DockPanel>
+          </StackPanel></ScrollViewer>
+        </TabItem>
+        <TabItem Header="最近翻译">
+          <Grid Margin="20"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+            <TextBlock Text="仅显示本次后台运行的最近 5 条，列表保留 10 分钟。关闭后台即清空；不会写入日志或反馈文件。" TextWrapping="Wrap" Foreground="{DynamicResource Muted}" FontSize="12"/>
+            <ComboBox x:Name="RecentList" Grid.Row="1" Margin="0,12,0,12" SelectionChanged="ReviewSelected" DisplayMemberPath="Label"/>
+            <DockPanel Grid.Row="2" Margin="0,0,0,6"><Button DockPanel.Dock="Right" Content="复制原文" Click="CopySourceClicked" Padding="12,4" MinHeight="30"/><TextBlock Text="原文" FontWeight="SemiBold" VerticalAlignment="Center"/></DockPanel>
+            <TextBox x:Name="SourceText" Grid.Row="3" IsReadOnly="True" MinHeight="55" AutomationProperties.Name="翻译原文"/>
+            <DockPanel Grid.Row="4" Margin="0,12,0,6"><Button DockPanel.Dock="Right" Content="复制英文" Click="CopyDraftClicked" Padding="12,4" MinHeight="30"/><TextBlock Text="英文" FontWeight="SemiBold" VerticalAlignment="Center"/></DockPanel>
+            <TextBox x:Name="DraftText" Grid.Row="5" IsReadOnly="True" MinHeight="55" AutomationProperties.Name="英文译文"/>
+            <DockPanel Grid.Row="6" Margin="0,12,0,0"><Button DockPanel.Dock="Right" Content="清空列表" Click="ClearReviewsClicked"/><TextBlock x:Name="ReviewNotice" Text="暂无记录。这里是生成结果，不代表已写入或发送到原应用。" TextWrapping="Wrap" Foreground="{DynamicResource Muted}" FontSize="12" Margin="0,0,12,0"/></DockPanel>
+          </Grid>
+        </TabItem>
+        <TabItem Header="常用语">
+          <Grid Margin="20">
+            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+            <DockPanel Margin="0,0,0,12"><Button DockPanel.Dock="Right" Content="导入语包" Click="ImportPhrasePackClicked"/><StackPanel><TextBlock Text="常用表达，直接出英文" FontSize="16" FontWeight="SemiBold"/><TextBlock x:Name="PhraseCountLabel" Text="正在载入常用语" Foreground="{DynamicResource Muted}" Margin="0,5,12,0"/></StackPanel></DockPanel>
+            <TextBox x:Name="PhraseSearch" Grid.Row="1" TextChanged="PhraseSearchChanged" AutomationProperties.Name="查找中文或英文常用语" ToolTip="输入中文或英文查找" TextWrapping="NoWrap" Margin="0,0,0,10"/>
+            <Grid Grid.Row="2" MinHeight="90"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+              <Border Background="{DynamicResource Hover}" BorderBrush="{DynamicResource Stroke}" BorderThickness="1"><Grid Margin="8,7,25,7"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="1.35*"/></Grid.ColumnDefinitions><TextBlock Text="中文"/><TextBlock Grid.Column="1" Text="英文"/></Grid></Border>
+              <ListBox x:Name="PhraseTable" Grid.Row="1" BorderBrush="{DynamicResource Stroke}" BorderThickness="1,0,1,1" Background="{DynamicResource Surface}" Foreground="{DynamicResource Ink}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" AutomationProperties.Name="常用语中英对照">
+                <ListBox.ItemContainerStyle><Style TargetType="ListBoxItem"><Setter Property="HorizontalContentAlignment" Value="Stretch"/><Setter Property="Padding" Value="6,5"/><Setter Property="Foreground" Value="{DynamicResource Ink}"/></Style></ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate><DataTemplate><Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="1.35*"/></Grid.ColumnDefinitions><TextBlock Text="{Binding Zh}" TextWrapping="Wrap" Margin="0,0,10,0"/><TextBlock Grid.Column="1" Text="{Binding En}" TextWrapping="Wrap"/></Grid></DataTemplate></ListBox.ItemTemplate>
+              </ListBox>
+            </Grid>
+            <StackPanel Grid.Row="3" Margin="0,16,0,0">
+              <TextBlock Text="已导入的语包" FontWeight="SemiBold" Margin="0,0,0,7"/>
+              <DockPanel><WrapPanel DockPanel.Dock="Right" Margin="8,0,0,0"><Button x:Name="ExportPhrasePackButton" Content="导出" Click="ExportPhrasePackClicked" IsEnabled="False" Margin="0,0,7,0"/><Button x:Name="RemovePhrasePackButton" Content="移除" Click="RemovePhrasePackClicked" IsEnabled="False"/></WrapPanel><ComboBox x:Name="PhrasePackList" DisplayMemberPath="Label" SelectionChanged="PhrasePackSelected" VerticalContentAlignment="Center" MinWidth="100" AutomationProperties.Name="选择已导入语包"/></DockPanel>
+              <TextBlock x:Name="PhrasePackNotice" Text="语包导出只包含所选包的词句，不带个人设置。" TextWrapping="Wrap" Foreground="{DynamicResource Muted}" FontSize="12" Margin="0,8,0,0"/>
+            </StackPanel>
+          </Grid>
+        </TabItem>
+        <TabItem Header="维护与帮助">
+          <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="20">
+            <TextBlock Text="安装、升级与恢复" FontSize="16" FontWeight="SemiBold"/>
+            <TextBlock Text="升级时完整解压新包，运行“安装输入法.cmd”。旧配置会保留。设置顶部提示旧输入组件时，请自行重开对应应用。" TextWrapping="Wrap" Foreground="{DynamicResource Muted}" Margin="0,8,0,12"/>
+            <WrapPanel Margin="0,0,0,20"><Button Content="使用说明" Click="GuideClicked" Margin="0,0,8,0"/><Button Content="打开安装目录" Click="InstallFolderClicked" Margin="0,0,8,0"/><Button Content="生成反馈文件" Click="FeedbackClicked"/></WrapPanel>
+            <TextBlock Text="个人数据" FontSize="16" FontWeight="SemiBold"/>
+            <TextBlock Text="设置与短语备份包含个人内容，请自行保管；不包含 Rime 学习词频。数据目录可查看词库与日志。卸载默认保留这些数据。完整迁移和清除方法见使用说明。" TextWrapping="Wrap" Foreground="{DynamicResource Muted}" Margin="0,8,0,12"/>
+            <WrapPanel Margin="0,0,0,18"><Button Content="备份设置与短语" Click="ExportClicked" Margin="0,0,8,8"/><Button Content="恢复设置与短语" Click="ImportClicked" Margin="0,0,8,8"/><Button Content="打开数据目录" Click="DataFolderClicked" Margin="0,0,0,8"/></WrapPanel>
+            <CheckBox x:Name="Recording" Content="本机故障记录（只有元数据，不含输入正文；默认关闭）" Checked="RecordingChanged" Unchecked="RecordingChanged" Foreground="{DynamicResource Ink}"/>
+            <TextBlock Text="记录上限约 20 MiB。反馈文件仅含版本、系统架构和供你填写的问题步骤；软件不会自动上传。" TextWrapping="Wrap" Foreground="{DynamicResource Muted}" FontSize="12" Margin="22,8,0,18"/>
+            <TextBlock Text="输入突然失效时：先切到其他输入法，再切回；仍无效则从开始菜单打开设置。卸载可在 Windows“已安装的应用”中操作。" TextWrapping="Wrap" Foreground="{DynamicResource Muted}"/>
+          </StackPanel></ScrollViewer>
+        </TabItem>
+      </TabControl>
+      <DockPanel Grid.Row="2" Margin="0,16,0,0"><Button DockPanel.Dock="Right" Content="完成" Click="DoneClicked" Style="{StaticResource Primary}"/><TextBlock x:Name="StatusLabel" Text="离线运行 · 无需账号 · 小范围试用版" Foreground="{DynamicResource Muted}" TextWrapping="Wrap" FontSize="12" VerticalAlignment="Center" Margin="0,0,14,0"/></DockPanel>
+    </Grid>
+  </Grid>
+</Window>

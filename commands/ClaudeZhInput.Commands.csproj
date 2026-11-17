@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>ClaudeZhInput.Commands</AssemblyName>
+    <RootNamespace>ClaudeZhInput.Commands</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="wpf\**\*.cs" />
+    <Compile Remove="testhost\**\*.cs" />
+  </ItemGroup>
+</Project>

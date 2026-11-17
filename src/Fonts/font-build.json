@@ -1,0 +1,19 @@
+{
+  "sourceSha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+  "source": "https://github.com/google/fonts/tree/main/ofl/notosanssc",
+  "modification": "static instances at weights 400 and 600; glyph coverage unchanged",
+  "fonts": [
+    {
+      "weight": 400,
+      "style": "Regular",
+      "family": "Noto Sans SC",
+      "sha256": "4737e6cf547b51fb8925bee5ced0bde1d119f077947f170a8ea8213896a67707"
+    },
+    {
+      "weight": 600,
+      "style": "SemiBold",
+      "family": "Noto Sans SC SemiBold",
+      "sha256": "a98d52ac8836f4cc3a9e7102bc9354aa1085fb29ffe4d8dc240025ed8a699bac"
+    }
+  ]
+}

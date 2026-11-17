@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>ClaudeZhInput</AssemblyName>
+    <Version>1.4.4</Version>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Fonts/*.ttf" />
+    <ProjectReference Include="../commands/wpf/ClaudeZhInput.Commands.Wpf.csproj" />
+    <ProjectReference Include="../rime/ClaudeZhInput.Rime.csproj" />
+  </ItemGroup>
+</Project>
